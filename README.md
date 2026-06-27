@@ -1,35 +1,45 @@
-# GovJob IA Scout
+# IA Scout: Área de **Física**
 
-**Monitor Inteligente de Concursos Públicos com IA Generativa**
+Plataforma SaaS automatizada para monitorização de concursos públicos na área de **Física**. O sistema utiliza Inteligência Artificial para realizar o *scraping* profundo de editais, filtrar vagas específicas e gerir o acompanhamento do candidato através de um quadro Kanban dinâmico.
 
-Este projeto foi desenvolvido para otimizar a busca por oportunidades no setor público, focando em **vagas de Física e Nível Médio**. Ele utiliza Web Scraping para coleta e o **Gemini 2.5 Flash** para análise e resumo automático de editais.
+##  Arquitetura do Sistema
+
+O projeto foi desenhado seguindo as melhores práticas de Engenharia de Dados:
+
+* **Backend:** Scripts Python com *web scraping* profundo (BeautifulSoup).
+* **Inteligência Artificial:** Google Gemini (modelo 2.5 Flash) para análise semântica e estruturação de dados em JSON.
+* **Database & Auth:** Supabase (PostgreSQL) com RLS (Row Level Security).
+* **Frontend:** Streamlit para uma interface de gestão interativa e intuitiva.
+* **Automação:** GitHub Actions (CI/CD) para orquestração diária do robô de busca.
+* **Deploy:** Streamlit Community Cloud.
 
 ## Tecnologias Utilizadas
 
-- **Python 3.12**: Linguagem base.
-- **Google Gemini 2.5 Flash API**: Resumo inteligente de editais via LLM.
-- **Streamlit**: Dashboard interativo e minimalista.
-- **SQLite**: Persistência de dados local.
-- **BeautifulSoup4**: Web Scraping para coleta de dados.
+- **Linguagem:** Python 3.11+
+- **Framework Web:** Streamlit
+- **Banco de Dados:** Supabase (PostgreSQL)
+- **IA/LLM:** Google Gemini API
+- **Infraestrutura:** GitHub Actions & Streamlit Cloud
 
-## Arquitetura do Sistema
+## Funcionalidades
 
-O projeto segue uma arquitetura modular focada em escalabilidade:
+- **Monitorização Automática:** O robô varre o PCI Concursos diariamente.
+- **Filtragem Inteligente:** A IA descarta vagas irrelevantes e valida requisitos de Física.
+- **Segurança:** Gestão de utilizadores com autenticação integrada.
+-  **Kanban Dinâmico:** Quadro de acompanhamento com fases personalizáveis e blocos de notas.
+-  **Gestão de Prazos:** Controlo de datas críticas para cada etapa do concurso.
 
-1. **Scrapers**: Varredura automatizada em portais de concursos.
-2. **Database Handler**: Persistência robusta com validação de duplicatas.
-3. **AI Engine**: Integração com a nova biblioteca `google-genai` para processamento de linguagem natural.
-4. **Frontend**: Interface de usuário minimalista e funcional.
+## ⚙️ Como Funciona o Fluxo de Dados
 
-## Como Executar
+1. **Rastreio:** O script `motor_ia_scout.py` entra nos editais encontrados na página inicial.
+2. **Análise:** O Gemini extrai o órgão, salário e confirma a área de Física.
+3. **Persistência:** O Supabase armazena os dados validados.
+4. **Interface:** A usuária acede à plataforma via Streamlit e gere o seu pipeline de estudos/provas.
 
-1. Instale as dependências: `pip install -r requirements.txt`
-2. Configure sua chave no `.env`: `GEMINI_API_KEY=sua_chave_aqui`
-3. Execute o coletor: `python backend/scrapers/pci_scraper.py`
-4. Gere os resumos: `python backend/engine/summarizer.py`
-5. Inicie o dashboard: `streamlit run frontend/app.py`
 
-## Desenvolvido por
 
-**Camila Larissa Gonçalves**  
-Analista de Sistemas | Pós-graduanda em IA e Ciência de Dados
+
+
+---
+
+Quer que eu o ajude a escrever o "texto de motivação" para colocar no topo, ou prefere adicionar mais alguma secção técnica ao seu README?
