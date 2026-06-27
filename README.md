@@ -40,6 +40,4 @@ O projeto foi desenhado seguindo as melhores práticas de Engenharia de Dados:
 
 
 
----
 
-Quer que eu o ajude a escrever o "texto de motivação" para colocar no topo, ou prefere adicionar mais alguma secção técnica ao seu README?
